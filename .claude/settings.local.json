@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(terraform version *)",
+      "Bash(command -v tofu)",
+      "Bash(command -v docker)"
+    ]
+  }
+}
