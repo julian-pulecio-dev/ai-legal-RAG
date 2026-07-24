@@ -1,0 +1,103 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f7;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #17181c;
+  }
+}
+
+.auth-form,
+.dashboard {
+  width: 100%;
+  max-width: 360px;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: canvas;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form h1,
+.dashboard h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+}
+
+.auth-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+}
+
+.auth-form input {
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.auth-form button,
+.dashboard button {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.auth-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #1a1a2e;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.error-text {
+  color: #c0392b;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.info-text {
+  color: #2e7d32;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.status-text {
+  font-size: 0.95rem;
+  color: #666;
+}

@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/amplifyConfig.ts","./src/main.tsx","./src/vite-env.d.ts","./src/context/AuthContext.tsx","./src/lib/api.ts","./src/lib/errors.ts","./src/pages/ConfirmSignupPage.tsx","./src/pages/DashboardPage.tsx","./src/pages/ForgotPasswordPage.tsx","./src/pages/LoginPage.tsx","./src/pages/SignupPage.tsx","./src/routes/ProtectedRoute.tsx"],"version":"5.9.3"}

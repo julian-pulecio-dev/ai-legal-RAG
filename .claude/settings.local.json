@@ -3,7 +3,17 @@
     "allow": [
       "Bash(terraform version *)",
       "Bash(command -v tofu)",
-      "Bash(command -v docker)"
+      "Bash(command -v docker)",
+      "Bash(npm -v)",
+      "Read(//home/julian/**)",
+      "Bash(command -v fnm volta)",
+      "Read(//usr/local/bin/**)",
+      "Bash(apt list *)",
+      "WebSearch",
+      "Bash(command -v node npm)",
+      "Read(//usr/lib/**)",
+      "Bash(terraform output *)",
+      "Bash(curl -sS -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/)"
     ]
   }
 }
