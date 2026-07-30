@@ -12,16 +12,16 @@ variable "user_pool_id" {
 
 variable "explicit_auth_flows" {
   description = <<-EOT
-    Flujos de auth permitidos para este cliente. Por requerimiento del flujo
-    de login (SRP), no se incluye ALLOW_USER_PASSWORD_AUTH (envía la
-    contraseña en texto plano dentro de la request, aunque sea sobre TLS).
+    Auth flows allowed for this client. Per the login flow's requirement
+    (SRP), ALLOW_USER_PASSWORD_AUTH is not included (it sends the password
+    in plain text within the request body, even over TLS).
   EOT
   type        = list(string)
   default     = ["ALLOW_USER_SRP_AUTH", "ALLOW_REFRESH_TOKEN_AUTH"]
 
   validation {
     condition     = !contains(var.explicit_auth_flows, "ALLOW_USER_PASSWORD_AUTH")
-    error_message = "Este cliente debe usar SRP; no habilites ALLOW_USER_PASSWORD_AUTH."
+    error_message = "This client must use SRP; do not enable ALLOW_USER_PASSWORD_AUTH."
   }
 }
 
@@ -41,13 +41,13 @@ variable "refresh_token_validity_days" {
 }
 
 variable "read_attributes" {
-  description = "Atributos que el app client puede leer del usuario."
+  description = "Attributes the app client can read from the user."
   type        = list(string)
   default     = ["email", "email_verified", "name"]
 }
 
 variable "write_attributes" {
-  description = "Atributos que el app client puede escribir/actualizar."
+  description = "Attributes the app client can write/update."
   type        = list(string)
   default     = ["email", "name"]
 }

@@ -1,10 +1,10 @@
-# Módulo "api_gateway": HTTP API (API Gateway v2) protegida por un JWT
-# authorizer que valida los tokens emitidos por el User Pool de Cognito.
+# Module "api_gateway": HTTP API (API Gateway v2) protected by a JWT
+# authorizer that validates tokens issued by the Cognito User Pool.
 #
-# No se definen rutas/integraciones aquí: esas se agregan cuando existan los
-# backends (Lambdas, etc.) que las implementen, referenciando
-# aws_apigatewayv2_authorizer.cognito.id como authorizer_id de cada ruta
-# protegida.
+# No routes/integrations are defined here: those get added once the
+# backends (Lambdas, etc.) that implement them exist, referencing
+# aws_apigatewayv2_authorizer.cognito.id as the authorizer_id of each
+# protected route.
 
 resource "aws_apigatewayv2_api" "this" {
   name          = "${var.project_name}-${var.environment}-api"
@@ -21,9 +21,10 @@ resource "aws_apigatewayv2_api" "this" {
   tags = var.tags
 }
 
-# Valida el access_token (o id_token, según lo que envíe el frontend) contra
-# el issuer y la audience del App Client. API Gateway verifica la firma y
-# expiración por su cuenta, antes de invocar cualquier integración.
+# Validates the access_token (or id_token, depending on what the frontend
+# sends) against the issuer and audience of the App Client. API Gateway
+# verifies the signature and expiration on its own, before invoking any
+# integration.
 resource "aws_apigatewayv2_authorizer" "cognito" {
   api_id           = aws_apigatewayv2_api.this.id
   authorizer_type  = "JWT"
@@ -50,16 +51,16 @@ resource "aws_apigatewayv2_stage" "this" {
   access_log_settings {
     destination_arn = aws_cloudwatch_log_group.this.arn
     format = jsonencode({
-      requestId         = "$context.requestId"
-      ip                = "$context.identity.sourceIp"
-      requestTime       = "$context.requestTime"
-      httpMethod        = "$context.httpMethod"
-      routeKey          = "$context.routeKey"
-      status            = "$context.status"
-      protocol          = "$context.protocol"
-      responseLength    = "$context.responseLength"
-      integrationError  = "$context.integrationErrorMessage"
-      authorizerError   = "$context.authorizer.error"
+      requestId        = "$context.requestId"
+      ip               = "$context.identity.sourceIp"
+      requestTime      = "$context.requestTime"
+      httpMethod       = "$context.httpMethod"
+      routeKey         = "$context.routeKey"
+      status           = "$context.status"
+      protocol         = "$context.protocol"
+      responseLength   = "$context.responseLength"
+      integrationError = "$context.integrationErrorMessage"
+      authorizerError  = "$context.authorizer.error"
     })
   }
 

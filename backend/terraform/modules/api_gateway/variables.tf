@@ -7,17 +7,17 @@ variable "environment" {
 }
 
 variable "cognito_app_client_id" {
-  description = "Client ID del App Client de Cognito; se usa como audience del JWT authorizer."
+  description = "Client ID of the Cognito App Client; used as the JWT authorizer's audience."
   type        = string
 }
 
 variable "cognito_issuer_url" {
-  description = "Issuer OIDC del User Pool de Cognito (https://cognito-idp.<region>.amazonaws.com/<pool_id>)."
+  description = "OIDC issuer of the Cognito User Pool (https://cognito-idp.<region>.amazonaws.com/<pool_id>)."
   type        = string
 }
 
 variable "cors_allowed_origins" {
-  description = "Orígenes permitidos para el frontend React (ej. http://localhost:5173, https://app.midominio.com)."
+  description = "Origins allowed for the React frontend (e.g. http://localhost:5173, https://app.mydomain.com)."
   type        = list(string)
 }
 

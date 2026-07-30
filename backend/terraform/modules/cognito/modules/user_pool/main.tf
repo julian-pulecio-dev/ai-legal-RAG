@@ -3,8 +3,8 @@ resource "aws_cognito_user_pool" "this" {
 
   deletion_protection = var.deletion_protection ? "ACTIVE" : "INACTIVE"
 
-  # Login por email en vez de username separado.
-  username_attributes = ["email"]
+  # Login by email instead of a separate username.
+  username_attributes      = ["email"]
   auto_verified_attributes = ["email"]
 
   username_configuration {
@@ -40,7 +40,7 @@ resource "aws_cognito_user_pool" "this" {
     advanced_security_mode = var.advanced_security_mode
   }
 
-  # Atributo estándar: email (obligatorio, es el identificador de login)
+  # Standard attribute: email (required, it's the login identifier)
   schema {
     name                     = "email"
     attribute_data_type      = "String"
@@ -54,7 +54,7 @@ resource "aws_cognito_user_pool" "this" {
     }
   }
 
-  # Atributo estándar: name
+  # Standard attribute: name
   schema {
     name                     = "name"
     attribute_data_type      = "String"

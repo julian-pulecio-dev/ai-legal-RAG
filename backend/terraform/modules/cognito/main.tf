@@ -1,7 +1,7 @@
-# Módulo "cognito": agrupa los recursos del directorio de identidad.
-# No se crea Identity Pool: no se necesitan credenciales AWS temporales en el
-# frontend, solo los JWT emitidos por el User Pool para autenticar contra la
-# API propia vía API Gateway.
+# Module "cognito": groups the identity directory resources.
+# No Identity Pool is created: the frontend doesn't need temporary AWS
+# credentials, only the JWTs issued by the User Pool to authenticate
+# against our own API via API Gateway.
 
 module "user_pool" {
   source = "./modules/user_pool"

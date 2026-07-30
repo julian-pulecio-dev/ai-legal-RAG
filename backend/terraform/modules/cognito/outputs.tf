@@ -11,7 +11,7 @@ output "user_pool_endpoint" {
 }
 
 output "issuer_url" {
-  description = "Issuer OIDC del User Pool, usado por el JWT authorizer de API Gateway."
+  description = "OIDC issuer of the User Pool, used by API Gateway's JWT authorizer."
   value       = "https://${module.user_pool.endpoint}"
 }
 

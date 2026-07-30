@@ -1,6 +1,6 @@
-# App Client para el frontend React (SPA). Sin client secret: un secret en
-# una SPA no se puede mantener confidencial (viviría en el JS del navegador),
-# así que Cognito no lo emite para este tipo de cliente.
+# App Client for the React frontend (SPA). No client secret: a secret in a
+# SPA can't be kept confidential (it would live in the browser's JS), so
+# Cognito doesn't issue one for this type of client.
 resource "aws_cognito_user_pool_client" "this" {
   name         = "${var.project_name}-${var.environment}-app-client"
   user_pool_id = var.user_pool_id

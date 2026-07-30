@@ -6,6 +6,8 @@ cors_allowed_origins = [
   "http://localhost:5173",
 ]
 
-mfa_configuration   = "OPTIONAL"
+mfa_configuration   = "OFF"
 password_min_length = 12
 deletion_protection = false
+
+alerts_email = "alerts@example.com"

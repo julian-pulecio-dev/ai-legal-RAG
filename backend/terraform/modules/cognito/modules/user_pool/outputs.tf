@@ -7,7 +7,7 @@ output "arn" {
 }
 
 output "endpoint" {
-  description = "Endpoint del User Pool (sin protocolo), usado para construir el issuer OIDC."
+  description = "User Pool endpoint (without protocol), used to build the OIDC issuer."
   value       = aws_cognito_user_pool.this.endpoint
 }
 

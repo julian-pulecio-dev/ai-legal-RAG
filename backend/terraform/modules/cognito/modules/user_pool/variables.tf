@@ -1,15 +1,15 @@
 variable "project_name" {
-  description = "Nombre del proyecto, usado como prefijo en los recursos."
+  description = "Project name, used as a prefix on resources."
   type        = string
 }
 
 variable "environment" {
-  description = "Nombre del entorno (dev, staging, prod)."
+  description = "Environment name (dev, staging, prod)."
   type        = string
 }
 
 variable "deletion_protection" {
-  description = "Si es true, protege el User Pool contra borrado accidental."
+  description = "If true, protects the User Pool against accidental deletion."
   type        = bool
   default     = false
 }
@@ -45,38 +45,38 @@ variable "temporary_password_validity_days" {
 }
 
 variable "mfa_configuration" {
-  description = "OFF, ON u OPTIONAL."
+  description = "OFF, ON, or OPTIONAL."
   type        = string
   default     = "OPTIONAL"
 
   validation {
     condition     = contains(["OFF", "ON", "OPTIONAL"], var.mfa_configuration)
-    error_message = "mfa_configuration debe ser OFF, ON u OPTIONAL."
+    error_message = "mfa_configuration must be OFF, ON, or OPTIONAL."
   }
 }
 
 variable "mfa_methods" {
-  description = "Métodos de MFA habilitados cuando mfa_configuration != OFF. Soportado: TOTP."
+  description = "MFA methods enabled when mfa_configuration != OFF. Supported: TOTP."
   type        = list(string)
   default     = ["TOTP"]
 }
 
 variable "advanced_security_mode" {
-  description = "OFF, AUDIT o ENFORCED. Detección de credenciales comprometidas y actividad de riesgo."
+  description = "OFF, AUDIT, or ENFORCED. Detection of compromised credentials and risky activity."
   type        = string
   default     = "AUDIT"
 
   validation {
     condition     = contains(["OFF", "AUDIT", "ENFORCED"], var.advanced_security_mode)
-    error_message = "advanced_security_mode debe ser OFF, AUDIT o ENFORCED."
+    error_message = "advanced_security_mode must be OFF, AUDIT, or ENFORCED."
   }
 }
 
 variable "custom_attributes" {
-  description = "Atributos custom adicionales del usuario."
+  description = "Additional custom user attributes."
   type = list(object({
     name       = string
-    type       = string # "String" o "Number"
+    type       = string # "String" or "Number"
     mutable    = bool
     min_length = optional(number)
     max_length = optional(number)
@@ -85,7 +85,7 @@ variable "custom_attributes" {
 }
 
 variable "name_attribute_required" {
-  description = "Si el atributo estándar 'name' es obligatorio en el registro."
+  description = "Whether the standard 'name' attribute is required at sign-up."
   type        = bool
   default     = true
 }

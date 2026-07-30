@@ -11,7 +11,7 @@ output "execution_arn" {
 }
 
 output "authorizer_id" {
-  description = "ID del JWT authorizer de Cognito, para asociarlo a rutas protegidas."
+  description = "ID of the Cognito JWT authorizer, to attach to protected routes."
   value       = aws_apigatewayv2_authorizer.cognito.id
 }
 

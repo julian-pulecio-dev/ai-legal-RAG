@@ -4,11 +4,15 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.27"
+    }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
     }
   }
 
-  # Descomentar y configurar un backend remoto antes de usar en equipo.
+  # Uncomment and configure a remote backend before using this with a team.
   # backend "s3" {
   #   bucket         = "mi-bucket-terraform-state"
   #   key            = "ai-chatbot/auth/terraform.tfstate"
